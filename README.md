@@ -10,7 +10,7 @@ Esta seção se dedica a explicar o hardware que foi usado neste projeto, uma ve
 
 ###### Placa Hachiko
 
-
+![](images/img01.jpg?raw=true)
 
 Após uma série de melhorias desde a **Placa Lobo**, a placa Hachiko traz mais portas para sensores de distância. Pinos de interrupção externa em dois sensores de linha, mas mantém suas outras qualidades e características já bem conhecidas. Abaixo segue as principais que irão influenciar no nosso código. 
 

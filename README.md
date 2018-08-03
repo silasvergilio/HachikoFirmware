@@ -12,7 +12,7 @@ O principal objetivo deste repostório é capactar colegas programadores a usar 
 
 Esta seção se dedica a explicar o hardware que foi usado neste projeto, uma vez que ele irá definir diversas decisões que foram tomadas ao longo deste projeto. Uma descrição mais precisa pode ser obtida acessando a documentação específica do hardware. Uso este momento também para lembrar que é possível acessar neste [link](https://github.com/silasvergilio/MetalGarurumon-Firmware) o repositório do robô que antecedeu este, muitos aspectos daquele projeto foram usados aqui e corrigidos aqui também, porém a sua formatação é em um arquivo pdf, espero com este repositório criar algo que ajude a criar um guia mais reproduzível. 
 
-###### Placa Hachiko
+##### Placa Hachiko
 
 ![](images/img01.jpg?raw=true)
 
@@ -26,11 +26,24 @@ Após uma série de melhorias desde a **Placa Lobo**, a placa Hachiko traz mais 
 | Acionamento  | Bluetooth  |
 | Tensão de Entrada  | 24V - 36V |
 
-###### Mecânica Hachiko
+##### Mecânica Hachiko
 
-![](images/img02.jpg?raw=true)
+![](images/img02.jpg=300x300?raw=true)
 
-Por mais que em geral se veja o programador como alguém num mundo abstrato
+Por mais que em geral se veja o programador como alguém num mundo abstrato, para o sumô de robôs é preciso uma boa interdisciplinaridade, o nosso código deve conversar com as caraterísticas físicas do nosso robô, tanto do ponto de vista mecânica quanto do ponto de vista da eletrônica, por mais que o conhecimento necessários nestas áreas não seja profundo, quanto mais profundo melhor, segue abaixo algumas das principais características, seguidas de uma conclusão.
+
+| Característica  | Valor |
+| ------------- | ------------- |
+| Motores  | Maxon RE40  |
+| Velocidade Máxima Teórica | 6m/s  |
+| Relação de transmissão de engrenagens  | 4.9 : 1  |
+| Dimensões | 196x196x90mm |
+| Ângulo da rampa | 18º |
+
+Conclusão. **Este robô é __muito__ rápido**.
+
+
+
 
 
 

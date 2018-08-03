@@ -11,11 +11,13 @@ Repositório para ensinar novos e antigos competidores de Sumô 3kg (Auto) a usa
 #### Objetivo <a name="objetivo"></a>
 O principal objetivo deste repostório é capactar colegas programadores a usar este código como inspiração para seus códigos, tanto em placas semelhantes a que eu usei, quanto em placas diferentes como Arduino ou Arm, portanto tento nesta descrição descrever tanto do ponto de vista do hardware que eu estou manipulando para alcançar meus objetivos, bem como também descrever a lógica por trás do código por meio de imagens e explicações textuais. 
 
-#### Hardware <a name="hardware"></a>
+<a name="hardware"></a>
+#### Hardware 
 
 Esta seção se dedica a explicar o hardware que foi usado neste projeto, uma vez que ele irá definir diversas decisões que foram tomadas ao longo deste projeto. Uma descrição mais precisa pode ser obtida acessando a documentação específica do hardware. Uso este momento também para lembrar que é possível acessar neste [link](https://github.com/silasvergilio/MetalGarurumon-Firmware) o repositório do robô que antecedeu este, muitos aspectos daquele projeto foram usados aqui e corrigidos aqui também, porém a sua formatação é em um arquivo pdf, espero com este repositório criar algo que ajude a criar um guia mais reproduzível. 
 
-##### Placa Hachiko <a name="placaHachiko"></a>
+<a name="placaHachiko"></a>
+##### Placa Hachiko 
 
 <img src="./images/img01.jpg" heigth = "600" width = "600">
 
@@ -29,7 +31,8 @@ Após uma série de melhorias desde a **Placa Lobo**, a placa Hachiko traz mais 
 | Acionamento  | Bluetooth  |
 | Tensão de Entrada  | 24V - 36V |
 
-##### Mecânica Hachiko <a name="mecHachiko"></a>
+<a name="mecHachiko"></a>
+##### Mecânica Hachiko 
 
 <img src="./images/img02.jpg" heigth = "600" width = "600">
 

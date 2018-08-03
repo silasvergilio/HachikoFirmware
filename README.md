@@ -1,6 +1,10 @@
 # HachikoFirmware
 Repositório para ensinar novos e antigos competidores de Sumô 3kg (Auto) a usar o código usado no robô Hachiko da equipe FEG-Robótica e adaptá-lo para seu próprio robô.
 
+## Sumário
+
+
+
 #### Objetivo
 O principal objetivo deste repostório é capactar colegas programadores a usar este código como inspiração para seus códigos, tanto em placas semelhantes a que eu usei, quanto em placas diferentes como Arduino ou Arm, portanto tento nesta descrição descrever tanto do ponto de vista do hardware que eu estou manipulando para alcançar meus objetivos, bem como também descrever a lógica por trás do código por meio de imagens e explicações textuais. 
 
@@ -14,11 +18,20 @@ Esta seção se dedica a explicar o hardware que foi usado neste projeto, uma ve
 
 Após uma série de melhorias desde a **Placa Lobo**, a placa Hachiko traz mais portas para sensores de distância. Pinos de interrupção externa em dois sensores de linha, mas mantém suas outras qualidades e características já bem conhecidas. Abaixo segue as principais que irão influenciar no nosso código. 
 
-| Característica  | Quantidade |
+| Característica  | Valor |
 | ------------- | ------------- |
 | Sensores de distância  | 6  |
 | Sensores de Linha  | 4  |
 | Sensores de Linha com Interrupção Externa  | 4  |
+| Acionamento  | Bluetooth  |
+| Tensão de Entrada  | 24V - 36V |
+
+###### Mecânica Hachiko
+
+![](images/img02.jpg?raw=true)
+
+Por mais que em geral se veja o programador como alguém num mundo abstrato
+
 
 
 

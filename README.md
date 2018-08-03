@@ -14,7 +14,7 @@ Esta seção se dedica a explicar o hardware que foi usado neste projeto, uma ve
 
 ##### Placa Hachiko
 
-![](images/img01.jpg?raw=true)
+<img src="./images/img01.jpg" heigth = "600" width = "600">
 
 Após uma série de melhorias desde a **Placa Lobo**, a placa Hachiko traz mais portas para sensores de distância. Pinos de interrupção externa em dois sensores de linha, mas mantém suas outras qualidades e características já bem conhecidas. Abaixo segue as principais que irão influenciar no nosso código. 
 
@@ -28,7 +28,7 @@ Após uma série de melhorias desde a **Placa Lobo**, a placa Hachiko traz mais 
 
 ##### Mecânica Hachiko
 
-<img src="./images/img02.jpg" heigth = "300" width = "300">
+<img src="./images/img02.jpg" heigth = "600" width = "600">
 
 Por mais que em geral se veja o programador como alguém num mundo abstrato, para o sumô de robôs é preciso uma boa interdisciplinaridade, o nosso código deve conversar com as caraterísticas físicas do nosso robô, tanto do ponto de vista mecânica quanto do ponto de vista da eletrônica, por mais que o conhecimento necessários nestas áreas não seja profundo, quanto mais profundo melhor, segue abaixo algumas das principais características, seguidas de uma conclusão.
 

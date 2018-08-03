@@ -3,11 +3,10 @@ Repositório para ensinar novos e antigos competidores de Sumô 3kg (Auto) a usa
 
 ## Sumário
 
-# Table of contents
 1. [Objetivo](#objetivo)
 2. [Hardware](#hardware)
     1. [Placa Hachiko](#placaHachiko)
-3. [Another paragraph](#paragraph2)
+    2. [Mecânica Hachiko](#mecHachiko)
 
 #### Objetivo <a name="objetivo"></a>
 O principal objetivo deste repostório é capactar colegas programadores a usar este código como inspiração para seus códigos, tanto em placas semelhantes a que eu usei, quanto em placas diferentes como Arduino ou Arm, portanto tento nesta descrição descrever tanto do ponto de vista do hardware que eu estou manipulando para alcançar meus objetivos, bem como também descrever a lógica por trás do código por meio de imagens e explicações textuais. 
@@ -30,7 +29,7 @@ Após uma série de melhorias desde a **Placa Lobo**, a placa Hachiko traz mais 
 | Acionamento  | Bluetooth  |
 | Tensão de Entrada  | 24V - 36V |
 
-##### Mecânica Hachiko
+##### Mecânica Hachiko <a name="mecHachiko"></a>
 
 <img src="./images/img02.jpg" heigth = "600" width = "600">
 

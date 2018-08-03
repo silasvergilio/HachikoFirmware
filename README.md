@@ -28,7 +28,7 @@ Após uma série de melhorias desde a **Placa Lobo**, a placa Hachiko traz mais 
 
 ##### Mecânica Hachiko
 
-![](images/img02.jpg =300x300)
+<img src="./images/img02.jpg" heigth = "300" width = "300">
 
 Por mais que em geral se veja o programador como alguém num mundo abstrato, para o sumô de robôs é preciso uma boa interdisciplinaridade, o nosso código deve conversar com as caraterísticas físicas do nosso robô, tanto do ponto de vista mecânica quanto do ponto de vista da eletrônica, por mais que o conhecimento necessários nestas áreas não seja profundo, quanto mais profundo melhor, segue abaixo algumas das principais características, seguidas de uma conclusão.
 

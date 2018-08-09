@@ -49,6 +49,10 @@ Por mais que em geral se veja o programador como alguém num mundo abstrato, par
 Conclusão. **Este robô é __muito__ rápido**. Todas as ideias aplicadas aqui levam este fato em consideração. 
 > Caso isso não fosse verdade, mudaria muito no programa ? 
 
+Não **muito**. Todavia algumas decises na parte de estratégias mudariam. Mas não vamos colocar a carroça na frente dos bois. Vamos seguir com nossas primeiras linhas de código.
+
+
+
 
 
 

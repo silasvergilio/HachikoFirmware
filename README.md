@@ -46,7 +46,9 @@ Por mais que em geral se veja o programador como alguém num mundo abstrato, par
 | Dimensões | 196x196x90mm |
 | Ângulo da rampa | 18º |
 
-Conclusão. **Este robô é __muito__ rápido**.
+Conclusão. **Este robô é __muito__ rápido**. Todas as ideias aplicadas aqui levam este fato em consideração. 
+> Caso isso não fosse verdade, mudaria muito no programa ? 
+
 
 
 

@@ -60,7 +60,7 @@ A linguagem de programação usada neste projeto foi a linguagem C, todavia ao s
 Toda a seção de configuração do hardware foi feita em uma única função da biblioteca *hachiko_reference.c*   
 
 
-```javascript
+```C
 if (isAwesome){
   return true
 }

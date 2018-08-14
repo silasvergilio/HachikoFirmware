@@ -49,7 +49,7 @@ Por mais que em geral se veja o programador como alguém num mundo abstrato, par
 Conclusão. **Este robô é __muito__ rápido**. Todas as ideias aplicadas aqui levam este fato em consideração. 
 > Caso isso não fosse verdade, mudaria muito no programa ? 
 
-Não **muito**. Todavia algumas decises na parte de estratégias mudariam. Mas não vamos colocar a carroça na frente dos bois. Vamos seguir com nossas primeiras linhas de código.
+Não **muito**. Todavia algumas decisões na parte de estratégias mudariam. Mas não vamos colocar a carroça na frente dos bois. Vamos seguir com nossas primeiras linhas de código.
 
 #### Software
 
@@ -57,6 +57,7 @@ A linguagem de programação usada neste projeto foi a linguagem C, todavia ao s
 
 ##### Configuração
 
+##### Sentido dos pinos
 Toda a seção de configuração do hardware foi feita em uma única função da biblioteca *hachiko_reference.c*, a primeira parte que entraremos em detalhe é o *set_tris*, essa é uma função que define o sentido de cada porta, ou seja, se determinado pino de cada porta é **entrada** ou **saída**, cabe ao programador em conjunto com o seu grupo da eletrônica analisar qual a função de cada porta da sua placa. 
 
 Exemplos de dispositivos de **entrada**:
@@ -72,17 +73,24 @@ Exemplos de dispositivos de **saída**:
 2. LED
 3. Controle dos Motores
 
-Para o caso do o *set_tris_x* ele recebe como argumento um número, em que cada bit dele representa um pino de determinada porta X. A maneira indicada aqui para fazer tal é escrever este número já na forma binária para facilitar sua vida usando a notação *0b* antes do número, como indicado abaixo
+Para o caso do o *set_tris_x* ele recebe como argumento um número, em que cada bit dele representa um pino de determinada porta X. A maneira indicada aqui para fazer tal é escrever este número já na forma binária para facilitar sua vida usando a notação *0b* antes do número, como indicado abaixo. Onde 1 indica *input* enquanto que 0 indica *output*.
  
 
 ```C
-
-set_tris_a(a7,a6,a5,a4,a3,a2,a1,a0);
-
-*/
    set_tris_a(0b11111111);
    set_tris_b(0b00000000);
    set_tris_c(0b10111111);
    set_tris_d(0b00000000);
    set_tris_e(0b1111);
 ```
+
+A decisão dos números foi feita baseada no esquemático da placa acima. Há uma grande chance do seu projeto usar um Arduino, neste caso bastaria usar o comando *pinMode* para definir o sentido, como por exemplo:
+
+```C
+pinMode(pinoDesejado,INPUT); //Para um dispositivo de entrada
+pinMode(pinoDesejado2,OUTPUT); //Para um dispositivo de saída
+```
+##### PWM
+
+
+

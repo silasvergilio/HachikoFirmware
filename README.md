@@ -51,6 +51,20 @@ Conclusão. **Este robô é __muito__ rápido**. Todas as ideias aplicadas aqui 
 
 Não **muito**. Todavia algumas decises na parte de estratégias mudariam. Mas não vamos colocar a carroça na frente dos bois. Vamos seguir com nossas primeiras linhas de código.
 
+#### Software
+
+A linguagem de programação usada neste projeto foi a linguagem C, todavia ao se programar PIC é natural que exista diferentes compiladores, um muito comum seria usar o MPLab, todavia para este projeto foi usado o compilador CCS. Ele tem uma linguagem simples de usar que não exige grande conhecimento sobre manipulação de bits e uso de registradores específicos.
+
+##### Configuração
+
+Toda a seção de configuração do hardware foi feita em uma única função da biblioteca *hachiko_reference.c*   
+
+
+```javascript
+if (isAwesome){
+  return true
+}
+```
 
 
 

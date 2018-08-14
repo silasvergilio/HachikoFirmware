@@ -57,7 +57,21 @@ A linguagem de programação usada neste projeto foi a linguagem C, todavia ao s
 
 ##### Configuração
 
-Toda a seção de configuração do hardware foi feita em uma única função da biblioteca *hachiko_reference.c*   
+Toda a seção de configuração do hardware foi feita em uma única função da biblioteca *hachiko_reference.c*, a primeira parte que entraremos em detalhe é o *set_tris*, essa é uma função que define o sentido de cada porta, ou seja, se determinado pino de cada porta é **entrada** ou **saída**, cabe ao programador em conjunto com o seu grupo da eletrônica analisar qual a função de cada porta da sua placa. 
+
+Exemplos de dispositivos de **entrada**:
+
+1. Sensor de Distância
+2. Sensor de Linha
+3. Sensores Internos (sensor de sobrecorrente)
+4. Sensores em geral
+
+Exemplos de dispositivos de **saída**:
+
+1.
+2. 
+
+
 
 
 ```C
@@ -116,16 +130,4 @@ set_tris_a(a7,a6,a5,a4,a3,a2,a1,a0);
    enable_interrupts(INT_RDA); //Habilita interrupção da porta serial
 }
 
-
-
 ```
-
-
-
-
-
-
-
-
-
-

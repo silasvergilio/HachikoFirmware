@@ -68,18 +68,14 @@ Exemplos de dispositivos de **entrada**:
 
 Exemplos de dispositivos de **saída**:
 
-1.
-2. 
+1. Sinal PWM
+2. LED
+3. Controle dos Motores
 
-
-
+Para o caso do o *set_tris_x* ele recebe como argumento um número, em que cada bit dele representa um pino de determinada porta X. A maneira indicada aqui para fazer tal é escrever este número já na forma binária para facilitar sua vida usando a notação *0b* antes do número, como indicado abaixo
+ 
 
 ```C
-void config()
-{
-   /*Definindo a direcao de cada uma das portas, A, B, C, D, E.
-1 indica input e 0 output e a ordem funciona da seguinte maneira
-e.g.
 
 set_tris_a(a7,a6,a5,a4,a3,a2,a1,a0);
 
@@ -89,45 +85,4 @@ set_tris_a(a7,a6,a5,a4,a3,a2,a1,a0);
    set_tris_c(0b10111111);
    set_tris_d(0b00000000);
    set_tris_e(0b1111);
-
-//Configuracao dos modulos PWM do PIC18F2431
-   setup_power_pwm_pins(PWM_BOTH_ON,PWM_BOTH_ON,PWM_BOTH_ON,PWM_BOTH_ON); // Configura os 4 módulos PWM.
-   setup_power_pwm(PWM_FREE_RUN, 1, 0, POWER_PWM_PERIOD, 0, 1,30);
-
-   /*
-   FREE RUN eh o modo mais aconselhado para mover motores DC, outros modos podem controlar de maneiras especificas, dividindo a frequencia
-   o modo UP/DOWN aparentemente eh mais eficiente, eh preciso mais testes para garantir isso.
-
-   1 indica o postscale usado na saída do PWM, o postscale divide a frequencia que recebe por um número, no caso não estamos dividindo por nada
-
-   0 indica o valor inicial da contagem do Timer responsavel pela geracao do pwm
-
-   POWER_PWM_PERIOD eh o periodo do PWM, isso pode controlar a frequencia do PWM de acordo com o periodo, ele eh dado em ciclos do clock
-
-   0  o compare, ele compara esse valor com o valor do timer para verificar se algum evento especial deveria acontecer
-
-   1 o postscale compare,ele afeta o compare utilizado no parâmetro anterior.
-
-   30 o dead time, ele altera a diferença de tempo entre o ON de um PWM e o OFF de seu complementar
-
-   */
-   setup_adc_ports(ALL_ANALOG); //Define que todas as portas que possuem conversão A/D serão usadas como conversão A/D
-   setup_adc(ADC_CLOCK_INTERNAL); //Utiliza o mesmo clock do PIC para o conversor A/D
-   enable_motors(); //Controla a habilitação das duas ponte H, para desabilitar uma delas, basta mudar o valor das constantes ENA e ENB
-
-   disable_interrupts(global); //Habilita interrupcao globais
-   enable_interrupts(INT_TIMER1); //Habilita interrupcao do Timer1
-   setup_timer_1(T1_INTERNAL|T1_DIV_BY_8); //Configura Timer1 e uso o pre scaler para dividir por 8;
-
-   disable_interrupts(INT_TIMER0);
-   setup_timer_0(RTCC_INTERNAL|RTCC_DIV_2|RTCC_8_BIT); //Configura Timer1 e uso o pre scaler para dividir por 8;
-
-   enable_interrupts(INT_TIMER5); //Habilita interrup��o do Timer1
-   setup_timer_5(T5_INTERNAL|T5_DIV_BY_1);//Configura Timer5 e divide o seu clock por 1.
-
-   
-   
-   enable_interrupts(INT_RDA); //Habilita interrupção da porta serial
-}
-
 ```

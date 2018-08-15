@@ -7,6 +7,10 @@ Repositório para ensinar novos e antigos competidores de Sumô 3kg (Auto) a usa
 2. [Hardware](#hardware)
     1. [Placa Hachiko](#placaHachiko)
     2. [Mecânica Hachiko](#mecHachiko)
+3. [Software](#software)
+    1. [Configuração](#configuracao)
+    2. [Sentido dos Pinos](#sentidoPinos)
+    3. [PWM](#pwm)
 
 #### Objetivo <a name="objetivo"></a>
 O principal objetivo deste repostório é capactar colegas programadores a usar este código como inspiração para seus códigos, tanto em placas semelhantes a que eu usei, quanto em placas diferentes como Arduino ou Arm, portanto tento nesta descrição descrever tanto do ponto de vista do hardware que eu estou manipulando para alcançar meus objetivos, bem como também descrever a lógica por trás do código por meio de imagens e explicações textuais. 
@@ -51,12 +55,15 @@ Conclusão. **Este robô é __muito__ rápido**. Todas as ideias aplicadas aqui 
 
 Não **muito**. Todavia algumas decisões na parte de estratégias mudariam. Mas não vamos colocar a carroça na frente dos bois. Vamos seguir com nossas primeiras linhas de código.
 
+<a name="software"></a>
 #### Software
 
 A linguagem de programação usada neste projeto foi a linguagem C, todavia ao se programar PIC é natural que exista diferentes compiladores, um muito comum seria usar o MPLab, todavia para este projeto foi usado o compilador CCS. Ele tem uma linguagem simples de usar que não exige grande conhecimento sobre manipulação de bits e uso de registradores específicos.
 
+<a name="configuracao"></a>
 ##### Configuração
 
+<a name="sentidoPinos"></a>
 ##### Sentido dos pinos
 Toda a seção de configuração do hardware foi feita em uma única função da biblioteca *hachiko_reference.c*, a primeira parte que entraremos em detalhe é o *set_tris*, essa é uma função que define o sentido de cada porta, ou seja, se determinado pino de cada porta é **entrada** ou **saída**, cabe ao programador em conjunto com o seu grupo da eletrônica analisar qual a função de cada porta da sua placa. 
 
@@ -90,6 +97,8 @@ A decisão dos números foi feita baseada no esquemático da placa acima. Há um
 pinMode(pinoDesejado,INPUT); //Para um dispositivo de entrada
 pinMode(pinoDesejado2,OUTPUT); //Para um dispositivo de saída
 ```
+
+<a name="pwm"></a>
 ##### PWM
 
 Existem 3 principais maneiras de gerar um sinal PWM usando o PIC18F4431. Usando o canal CCP (capture, compare, PWM), método que nunca foi usado por mim. Criando a onda "manualmente" a partir das interrupções do timer, fazendo os devidos cálculos, ou por fim, o método que usamos chamado "Power PWM", as principais vantagens são as seguintes:
@@ -97,6 +106,19 @@ Existem 3 principais maneiras de gerar um sinal PWM usando o PIC18F4431. Usando 
 1. Fácil utilização
 2. Suporta frequências mais altas (faixa acima de 50kHz)
 3. Permite diversos modos de utilização
+
+Abaixo seguem as linhas necessárias para configurar o PWM, logo em seguida vamos explicar em mais detalhes como compreender e configurar para a sua necessidade. 
+
+```C
+//Configuracao dos modulos PWM do PIC18F4431
+
+   setup_power_pwm_pins(PWM_BOTH_ON,PWM_BOTH_ON,PWM_BOTH_ON,PWM_BOTH_ON); // Configura os 4 módulos PWM.
+   setup_power_pwm(PWM_FREE_RUN, 1, 0, POWER_PWM_PERIOD, 0, 1,30);
+```
+No Pic18F4431 existem 4 canais PWM, eles trabalham em dupla, na primeira linha decidimos qual será a relação entre cada um destes canais (duplas). Neste caso definimos todos como "PWM_BOTH_ON", indicando que eles funcionaram de maneira idêntica entre si e de modo não complementar.
+
+A segunda linha indica como irá funcionar 
+
 
 
 

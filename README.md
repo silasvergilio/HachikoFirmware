@@ -92,5 +92,14 @@ pinMode(pinoDesejado2,OUTPUT); //Para um dispositivo de saída
 ```
 ##### PWM
 
+Existem 3 principais maneiras de gerar um sinal PWM usando o PIC18F4431. Usando o canal CCP (capture, compare, PWM), método que nunca foi usado por mim. Criando a onda "manualmente" a partir das interrupções do timer, fazendo os devidos cálculos, ou por fim, o método que usamos chamado "Power PWM", as principais vantagens são as seguintes:
+
+1. Fácil utilização
+2. Suporta frequências mais altas (faixa acima de 50kHz)
+3. Permite diversos modos de utilização
+
+
+
+
 
 

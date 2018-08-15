@@ -117,7 +117,21 @@ Abaixo seguem as linhas necessárias para configurar o PWM, logo em seguida vamo
 ```
 No Pic18F4431 existem 4 canais PWM, eles trabalham em dupla, na primeira linha decidimos qual será a relação entre cada um destes canais (duplas). Neste caso definimos todos como "PWM_BOTH_ON", indicando que eles funcionaram de maneira idêntica entre si e de modo não complementar.
 
-A segunda linha indica como irá funcionar 
+
+A segunda linha indica como irá funcionar a onde do PWM em si, vamos compreender cada um dos argumentos.
+
+1. O primeiro valor 'PWM_FREE_RUN', indica o modo de contagem em que o PWM irá se basear, o modo FREE RUN é o mais aconselhado para mover motores DC
+2. O valor **1** indica o postscale da frequência usada para o PWM, com o valor unitário a frequência não será dividida, e para todos os cálculos vamos usar o valor de 5Mhz, que seria 20Mhz da placa dividido por 4 (divisão padrão realizada com toda frequência que entra do cristal no PIC).
+3. **0** na terceira posição indica qual o valor inicial da contagem do contador para o PWM, este e outros valores ajudam a manipular melhor a frequência desejada no PWM
+4. **POWER PWM PERIOD** é uma constante definida no programa que é o valor que representa o período da onda PWM, dentro deste projeto e outros é a maneira convencional de ajustar a frequência desejada, todavia não o único. Após estudos realizados pela equipe, que podem ser vistos **aqui[TODO LINK PARA CIC 2018]**, a frequência de 50kHz foi adotada pela melhor eficiência do motor Maxon.
+5. Este valor **0** indica que não haverá tratamento de nenhum evento especial ligado ao PWM.
+6. O 1 indica o postscale, mais uma opção para controle da frequência que desejamos utilizar.
+7. 30 é o valor para o *deadtime* do PWM, é um valor pequeno apenas para segurança da eletrônica de potência no chaveamento.
+
+Notamos a partir desta configuração que o principal valor a ser controlado neste caso é o valor do período do PWM, este valor é dado em ciclos de instrução do PIC. Exemplo:
+
+
+
 
 
 

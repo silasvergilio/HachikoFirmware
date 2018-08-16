@@ -9,8 +9,9 @@ Repositório para ensinar novos e antigos competidores de Sumô 3kg (Auto) a usa
     2. [Mecânica Hachiko](#mecHachiko)
 3. [Software](#software)
     1. [Configuração](#configuracao)
-    2. [Sentido dos Pinos](#sentidoPinos)
-    3. [PWM](#pwm)
+        1. [Sentido dos Pinos](#sentidoPinos)
+        2. [PWM](#pwm)
+        3. [ADC]
 
 #### Objetivo <a name="objetivo"></a>
 O principal objetivo deste repostório é capactar colegas programadores a usar este código como inspiração para seus códigos, tanto em placas semelhantes a que eu usei, quanto em placas diferentes como Arduino ou Arm, portanto tento nesta descrição descrever tanto do ponto de vista do hardware que eu estou manipulando para alcançar meus objetivos, bem como também descrever a lógica por trás do código por meio de imagens e explicações textuais. 

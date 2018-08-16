@@ -130,7 +130,14 @@ A segunda linha indica como irá funcionar a onde do PWM em si, vamos compreende
 
 Notamos a partir desta configuração que o principal valor a ser controlado neste caso é o valor do período do PWM, este valor é dado em ciclos de instrução do PIC. Exemplo:
 
-Para um cristal de 20Mhz, no PIC entra na realidade 4MHz, 1/4000000 =  , este será o tempo de cada instrução. Usando este valor para entendermos o período, caso tenhamos um valor de **POWER PWM PERIOD** de 500, isso representa 
+Para um cristal de 20Mhz, no PIC entra na realidade 4MHz, 1/4000000 = 0.25us  , este será o tempo de cada instrução. Usando este valor para entendermos o período, caso tenhamos um valor de **POWER PWM PERIOD** de 500, isso representa um período de 0.125ms. A fim de calcularmos a frequência, basta usarmos a equação f = 1/T, onde *f* é a frequência, e *T* é o período que apresentamos anteriormente. Portanto para o exemplo aqui dado a frequência seria de 8kHz. 
+
+Para o caso do **Arduino** não há uma maneira de trabalhar com maiores frequência,todavia é preciso utilizar as portas adequadas da placa em questo. O Arduino trabalha em geral com frequência de 1kHz.
+
+
+
+
+
 
 
 

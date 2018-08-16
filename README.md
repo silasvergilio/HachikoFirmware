@@ -11,7 +11,7 @@ Repositório para ensinar novos e antigos competidores de Sumô 3kg (Auto) a usa
     1. [Configuração](#configuracao)
         1. [Sentido dos Pinos](#sentidoPinos)
         2. [PWM](#pwm)
-        3. [ADC]
+        3. [ADC](#adc)
 
 #### Objetivo <a name="objetivo"></a>
 O principal objetivo deste repostório é capactar colegas programadores a usar este código como inspiração para seus códigos, tanto em placas semelhantes a que eu usei, quanto em placas diferentes como Arduino ou Arm, portanto tento nesta descrição descrever tanto do ponto de vista do hardware que eu estou manipulando para alcançar meus objetivos, bem como também descrever a lógica por trás do código por meio de imagens e explicações textuais. 
@@ -134,6 +134,20 @@ Notamos a partir desta configuração que o principal valor a ser controlado nes
 Para um cristal de 20Mhz, no PIC entra na realidade 4MHz, 1/4000000 = 0.25us  , este será o tempo de cada instrução. Usando este valor para entendermos o período, caso tenhamos um valor de **POWER PWM PERIOD** de 500, isso representa um período de 0.125ms. A fim de calcularmos a frequência, basta usarmos a equação f = 1/T, onde *f* é a frequência, e *T* é o período que apresentamos anteriormente. Portanto para o exemplo aqui dado a frequência seria de 8kHz. 
 
 Para o caso do **Arduino** não há uma maneira de trabalhar com maiores frequência,todavia é preciso utilizar as portas adequadas da placa em questo. O Arduino trabalha em geral com frequência de 1kHz.
+
+<a name="adc"></a>
+##### Conversor Analógico-Digital (ADC)
+
+O conversor analógico-digital tem por função transformar um valor de tensão analógica (entre 0V e 5V) em um valor digital que vai de 0 a 1023, é a única maneira que temos de ler o valor de um grande grupo de sensores, incluindo alguns modelos de sensores que nos ajudarão a enxergar o adversário e a linha branca do *dohyo*. A sua configuração é simples, sua utlização é menos simples, mas trataremos disto mais a frente. O código abaixo configura todas as portas que podem, como conversores.
+
+> Observação: Existem 8 portas que podem funcionar como conversores A/D, todavia o PIC na verdade tem apenas **um** conversor A/D, para usar mais do que uma porta para conversão o PIC possui um multiplexador, mais sobre isso será explicado na função da leitura do conversor A/D mais a frente.
+
+
+
+
+
+
+
 
 
 

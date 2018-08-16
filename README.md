@@ -142,6 +142,13 @@ O conversor analógico-digital tem por função transformar um valor de tensão 
 
 > Observação: Existem 8 portas que podem funcionar como conversores A/D, todavia o PIC na verdade tem apenas **um** conversor A/D, para usar mais do que uma porta para conversão o PIC possui um multiplexador, mais sobre isso será explicado na função da leitura do conversor A/D mais a frente.
 
+```C
+    setup_adc_ports(ALL_ANALOG); //Define que todas as portas que possuem conversão A/D serão usadas como conversão A/D
+   setup_adc(ADC_CLOCK_INTERNAL); //Utiliza o mesmo clock do PIC para o conversor A/D
+```
+
+A primeira linha do excerto de código acima define que todas as portas possíveis serão analógicas, para  configurar apenas algumas portas como ADC é preciso consultar a documentação específica do CCS. A segunda linha configura o ADC para usar o clock que entra no PIC (no caso da nossa placa será 4Mhz) para realizar a conversão. O processo de conversão é sensível ao tempo, por isso esta informação é importante, alguns circuitos usam clocks externos para melhorar a velocidade de conversão. No nosso caso ler um pino digital leva muito menos tempo do que realizar uma conversão.
+
 
 
 

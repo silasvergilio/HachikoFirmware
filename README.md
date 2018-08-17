@@ -8,7 +8,8 @@ Repositório para ensinar novos e antigos competidores de Sumô 3kg (Auto) a usa
     1. [Placa Hachiko](#placaHachiko)
     2. [Mecânica Hachiko](#mecHachiko)
 3. [Software](#software)
-    1. [Configuração](#configuracao)
+    1. [Estrutura de bibliotecas](#bibliotecas)
+    2. [Configuração](#configuracao)
         1. [Sentido dos Pinos](#sentidoPinos)
         2. [PWM](#pwm)
         3. [ADC](#adc)
@@ -172,6 +173,12 @@ A próxima diretiva se refere a configurações de funcionamentos específicos d
 3. NOPROTECT - O código não é protegido,portanto é possível acessar ele a partir do microcontrolador
 4. NOLVP - Desabilita programação em baixa tensão.
 
+Embora acima tenhamos definido que vamos usar um cristal de alta velocidade, porém precisamos usar outra diretiva para definir qual o valor exato do nosso cristal.
+
+```C
+#use delay(clock=20000000)
+```
+Existem mais algumas configurações que serão trabalhadas, como a porta Serial e os timers, todavia eles serão tratados em suas respectivas sessões a fim de alinhar sua configuração com sua utilização. 
 
 
 

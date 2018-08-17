@@ -167,10 +167,10 @@ A próxima diretiva se refere a configurações de funcionamentos específicos d
 #fuses HS, NOWDT, NOPROTECT, NOBROWNOUT, NOPUT, NOLVP 
 ```
 
-1.HS - Significa que estamos usando um cristal de alta velocidade (no caso 20Mhz)
-2.NOWDTH - Não desejamos nos usar do WatchDog Timer, que impede que o programa "trave" dentro de loops infinitos ou algo assim. Nosso robô depende de um loop infinitos
-3.NOPROTECT - O código não é protegido,portanto é possível acessar ele a partir do microcontrolador
-4.NOLVP - Desabilita programação em baixa tensão.
+1. HS - Significa que estamos usando um cristal de alta velocidade (no caso 20Mhz)
+2. NOWDTH - Não desejamos nos usar do WatchDog Timer, que impede que o programa "trave" dentro de loops infinitos ou algo assim. Nosso robô depende de um loop infinitos
+3. NOPROTECT - O código não é protegido,portanto é possível acessar ele a partir do microcontrolador
+4. NOLVP - Desabilita programação em baixa tensão.
 
 
 

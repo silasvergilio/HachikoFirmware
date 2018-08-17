@@ -63,6 +63,22 @@ Não **muito**. Todavia algumas decisões na parte de estratégias mudariam. Mas
 
 A linguagem de programação usada neste projeto foi a linguagem C, todavia ao se programar PIC é natural que exista diferentes compiladores, um muito comum seria usar o MPLab, todavia para este projeto foi usado o compilador CCS. Ele tem uma linguagem simples de usar que não exige grande conhecimento sobre manipulação de bits e uso de registradores específicos.
 
+<a name="bibliotecas"></a>
+##### Estrutura das bibliotecas
+
+<img src="./images/img03.jpg" heigth = "600" width = "600">
+
+A estrutura acima mostra quais os arquivos que compooem o projeto do firmware completo. Abaixo segue a explicação da utilização de cada um destes arquivos.
+
+  1. *hachiko_1_0.c*  Este é o arquivo principal que contém a função main() que será efetivamente utilizado, nele ocorre também a configuração dos *fuses* que irão aparecer mais a frente. Neste arquivo são implementadas as funções de cada Timer como será explicado mais a frente também. 
+  
+  2. *hachiko_reference.h* Neste arquivo são declaradas todas as funções da biblioteca principal e todas as constantes utilizadas ao longo do programa.
+  
+  3. *hachiko_reference.c* Este é o arquivo da biblioteca principal, a maioria das funções utilizadas no programa são implementadas aqui.
+  
+  4. *hachiko_strategies.c* Aqui são implementadas apenas as rotinas de estratégias de busca  
+
+
 <a name="configuracao"></a>
 ##### Configuração
 

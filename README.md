@@ -12,6 +12,7 @@ Repositório para ensinar novos e antigos competidores de Sumô 3kg (Auto) a usa
         1. [Sentido dos Pinos](#sentidoPinos)
         2. [PWM](#pwm)
         3. [ADC](#adc)
+        4. [Diretivas de Compilador](#diretivas)
 
 #### Objetivo <a name="objetivo"></a>
 O principal objetivo deste repostório é capactar colegas programadores a usar este código como inspiração para seus códigos, tanto em placas semelhantes a que eu usei, quanto em placas diferentes como Arduino ou Arm, portanto tento nesta descrição descrever tanto do ponto de vista do hardware que eu estou manipulando para alcançar meus objetivos, bem como também descrever a lógica por trás do código por meio de imagens e explicações textuais. 
@@ -143,11 +144,17 @@ O conversor analógico-digital tem por função transformar um valor de tensão 
 > Observação: Existem 8 portas que podem funcionar como conversores A/D, todavia o PIC na verdade tem apenas **um** conversor A/D, para usar mais do que uma porta para conversão o PIC possui um multiplexador, mais sobre isso será explicado na função da leitura do conversor A/D mais a frente.
 
 ```C
-    setup_adc_ports(ALL_ANALOG); 
+   setup_adc_ports(ALL_ANALOG); 
    setup_adc(ADC_CLOCK_INTERNAL); 
 ```
 
-A primeira linha do excerto de código acima define que todas as portas possíveis serão analógicas, para  configurar apenas algumas portas como ADC é preciso consultar a documentação específica do CCS. A segunda linha configura o ADC para usar o clock que entra no PIC (no caso da nossa placa será 4Mhz) para realizar a conversão. O processo de conversão é sensível ao tempo, por isso esta informação é importante, alguns circuitos usam clocks externos para melhorar a velocidade de conversão. No nosso caso ler um pino digital leva muito menos tempo do que realizar uma conversão.
+A primeira linha do excerto de código acima define que todas as portas possíveis serão analógicas, para  configurar apenas algumas portas como ADC é preciso consultar a documentação específica do CCS. A segunda linha configura o ADC para usar o clock que entra no PIC (no caso da nossa placa será 4Mhz) para realizar a conversão. O processo de conversão é sensível ao tempo, por isso esta informação é importante, alguns circuitos usam clocks externos para melhorar a velocidade de conversão. No nosso caso **ler um pino digital leva muito menos tempo do que realizar uma conversão analógico-digital**.
+
+
+<a name="pwm"></a>
+##### Diretivas de Programação
+
+
 
 
 

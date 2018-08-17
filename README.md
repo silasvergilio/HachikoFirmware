@@ -66,7 +66,7 @@ A linguagem de programação usada neste projeto foi a linguagem C, todavia ao s
 <a name="bibliotecas"></a>
 ##### Estrutura das bibliotecas
 
-<img src="./images/img03.jpg" heigth = "600" width = "600">
+<img src="./images/img03.jpg" heigth = "400" width = "400">
 
 A estrutura acima mostra quais os arquivos que compooem o projeto do firmware completo. Abaixo segue a explicação da utilização de cada um destes arquivos.
 

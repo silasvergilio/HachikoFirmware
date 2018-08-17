@@ -151,15 +151,28 @@ O conversor analógico-digital tem por função transformar um valor de tensão 
 A primeira linha do excerto de código acima define que todas as portas possíveis serão analógicas, para  configurar apenas algumas portas como ADC é preciso consultar a documentação específica do CCS. A segunda linha configura o ADC para usar o clock que entra no PIC (no caso da nossa placa será 4Mhz) para realizar a conversão. O processo de conversão é sensível ao tempo, por isso esta informação é importante, alguns circuitos usam clocks externos para melhorar a velocidade de conversão. No nosso caso **ler um pino digital leva muito menos tempo do que realizar uma conversão analógico-digital**.
 
 
-<a name="dretivas"></a>
-##### Diretivas de Programação
+<a name="diretivas"></a>
+##### Diretivas de Compilador
 
 Algumas das configurações que realizamos não acontecem dentro da funço *config()*, algumas delas ocorrem no arquivo principal, no formato que chamamos de *diretivas de programação*, so comandos que servem apenas para o compilador e não para a nossa sequência de códigos lógicos, é como uma instrução que não será executada pelo PIC em si, e sim pelo compilador a fim de garantir algumas configurações no funcionamento mais básico do Hardware. A primeira destas configurações se relaciona com o último tópico que falamos, de ADC. Toda diretiva é caracterizada por começar por *#*. 
 
 ```C
 #device adc=10 
 ```
-A diretiva acima garante que o nosso conversor terá a resolução de 10bits, ou seja, um valor de tensão de 0V a 5V irá gerar um número de 0 - 2^10 - 1
+A diretiva acima garante que o nosso conversor terá a resolução de 10bits, ou seja, um valor de tensão de 0V a 5V irá gerar um número de 0 - 1023. 
+
+A próxima diretiva se refere a configurações de funcionamentos específicos do PIC, explicaremos uma de cada vez
+
+```C
+#fuses HS, NOWDT, NOPROTECT, NOBROWNOUT, NOPUT, NOLVP 
+```
+
+1.HS - Significa que estamos usando um cristal de alta velocidade (no caso 20Mhz)
+2.NOWDTH - Não desejamos nos usar do WatchDog Timer, que impede que o programa "trave" dentro de loops infinitos ou algo assim. Nosso robô depende de um loop infinitos
+3.NOPROTECT - O código não é protegido,portanto é possível acessar ele a partir do microcontrolador
+4.NOLVP - Desabilita programação em baixa tensão.
+
+
 
 
 

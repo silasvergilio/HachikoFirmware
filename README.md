@@ -76,7 +76,9 @@ A estrutura acima mostra quais os arquivos que compooem o projeto do firmware co
   
   3. *hachiko_reference.c* Este é o arquivo da biblioteca principal, a maioria das funções utilizadas no programa são implementadas aqui.
   
-  4. *hachiko_strategies.c* Aqui são implementadas apenas as rotinas de estratégias de busca  
+  4. *hachiko_strategies.c* Aqui são implementadas apenas as rotinas de estratégias de busca do robô
+  
+  5. *hachiko_retired.c* Aqui estão funções que já estão implementadas, todavia não são mais usadas no projeto atual.
 
 
 <a name="configuracao"></a>

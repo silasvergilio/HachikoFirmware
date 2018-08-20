@@ -139,7 +139,7 @@ Abaixo seguem as linhas necessárias para configurar o PWM, logo em seguida vamo
 No Pic18F4431 existem 4 canais PWM, eles trabalham em dupla, na primeira linha decidimos qual será a relação entre cada um destes canais (duplas). Neste caso definimos todos como "PWM_BOTH_ON", indicando que eles funcionaram de maneira idêntica entre si e de modo não complementar.
 
 
-A segunda linha indica como irá funcionar a onde do PWM em si, vamos compreender cada um dos argumentos.
+A segunda linha indica como irá funcionar a onda do PWM em si, vamos compreender cada um dos argumentos.
 
 1. O primeiro valor 'PWM_FREE_RUN', indica o modo de contagem em que o PWM irá se basear, o modo FREE RUN é o mais aconselhado para mover motores DC
 2. O valor **1** indica o postscale da frequência usada para o PWM, com o valor unitário a frequência não será dividida, e para todos os cálculos vamos usar o valor de 5Mhz, que seria 20Mhz da placa dividido por 4 (divisão padrão realizada com toda frequência que entra do cristal no PIC).
@@ -153,12 +153,12 @@ Notamos a partir desta configuração que o principal valor a ser controlado nes
 
 Para um cristal de 20Mhz, no PIC entra na realidade 4MHz, 1/4000000 = 0.25us  , este será o tempo de cada instrução. Usando este valor para entendermos o período, caso tenhamos um valor de **POWER PWM PERIOD** de 500, isso representa um período de 0.125ms. A fim de calcularmos a frequência, basta usarmos a equação f = 1/T, onde *f* é a frequência, e *T* é o período que apresentamos anteriormente. Portanto para o exemplo aqui dado a frequência seria de 8kHz. 
 
-Para o caso do **Arduino** não há uma maneira de trabalhar com maiores frequência,todavia é preciso utilizar as portas adequadas da placa em questo. O Arduino trabalha em geral com frequência de 1kHz.
+Para o caso do **Arduino** não há uma maneira de trabalhar com maiores frequência,todavia é preciso utilizar as portas adequadas da placa em questão. O Arduino trabalha em geral com frequência de 1kHz.
 
 <a name="adc"></a>
 ##### Conversor Analógico-Digital (ADC)
 
-O conversor analógico-digital tem por função transformar um valor de tensão analógica (entre 0V e 5V) em um valor digital que vai de 0 a 1023, é a única maneira que temos de ler o valor de um grande grupo de sensores, incluindo alguns modelos de sensores que nos ajudarão a enxergar o adversário e a linha branca do *dohyo*. A sua configuração é simples, sua utlização é menos simples, mas trataremos disto mais a frente. O código abaixo configura todas as portas que podem, como conversores.
+O conversor analógico-digital tem por função transformar um valor de tensão analógica (entre 0V e 5V) em um valor digital que vai de 0 a 1023, é a única maneira que temos de ler o valor de um grande grupo de sensores, incluindo alguns modelos de sensores que nos ajudarão a enxergar o adversário e a linha branca do *dohyo*. A sua configuração é simples, sua utilização é menos simples, mas trataremos disto mais a frente. O código abaixo configura todas as portas que podem, como conversores.
 
 > Observação: Existem 8 portas que podem funcionar como conversores A/D, todavia o PIC na verdade tem apenas **um** conversor A/D, para usar mais do que uma porta para conversão o PIC possui um multiplexador, mais sobre isso será explicado na função da leitura do conversor A/D mais a frente.
 
@@ -173,7 +173,7 @@ A primeira linha do excerto de código acima define que todas as portas possíve
 <a name="diretivas"></a>
 ##### Diretivas de Compilador
 
-Algumas das configurações que realizamos não acontecem dentro da funço *config()*, algumas delas ocorrem no arquivo principal, no formato que chamamos de *diretivas de programação*, so comandos que servem apenas para o compilador e não para a nossa sequência de códigos lógicos, é como uma instrução que não será executada pelo PIC em si, e sim pelo compilador a fim de garantir algumas configurações no funcionamento mais básico do Hardware. A primeira destas configurações se relaciona com o último tópico que falamos, de ADC. Toda diretiva é caracterizada por começar por *#*. 
+Algumas das configurações que realizamos não acontecem dentro da funço *config()*, algumas delas ocorrem no arquivo principal, no formato que chamamos de *diretivas de compilador*, são comandos que servem apenas para o compilador e não para a nossa sequência de códigos lógicos, é como uma instrução que não será executada pelo PIC em si, e sim pelo compilador a fim de garantir algumas configurações no funcionamento mais básico do Hardware. A primeira destas configurações se relaciona com o último tópico que falamos, de ADC. Toda diretiva é caracterizada por começar por *#*. 
 
 ```C
 #device adc=10 
@@ -199,7 +199,10 @@ Embora acima tenhamos definido que vamos usar um cristal de alta velocidade, por
 Existem mais algumas configurações que serão trabalhadas, como a porta Serial e os timers, todavia eles serão tratados em suas respectivas sessões a fim de alinhar sua configuração com sua utilização. 
 
 
+<a name="acionamentoMotor"></a>
+##### Acionamento de Motores
 
+Na placa deste robô, e também da maioria dos robôs da competição, os motores são acionados por um tipo de eletrônica chamada *Ponte H*, o seu funcionamento pode ser detalhadamente descrito na documentação da equipe eletrônica, todavia o funcionamento do nocco circuito específico merece um espaço aqui. Abaixo segue uma imagem que usaremos para descrever de maneira conceitual  
 
 
 

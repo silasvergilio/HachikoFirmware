@@ -207,8 +207,37 @@ Na placa deste robô, e também da maioria dos robôs da competição, os motore
 
 <img src="./images/img04.png" heigth = "400" width = "400">
 
+A fim de acionar um motor num determinado sentido é preciso fechar a chave S1 e S4, e para outro sentido, usar a chave S2 e S3 gira o motor em outro sentido. No nosso circuito cada uma destas portas é ligada a um canal diferente do PWM (aqueles programados em nossa seção de configuração), de maneira que podemos abrir e fechar elas usando uma onde PWM, controlando assim não só seu sentido como também sua velocidade ligando e desligando a chave dentro de um ciclo de trabalho estipulado. 
+
+Existem diferentes maneiras de escrever as funções que irão movimentar o seu robô, abaixo segue algumas opções, todavia explicarei com mais detalhes a que foi adotada aqui.
+
+1. Criar uma função que recebe 4 argumentos. 1 deles indicando qual motor deseja ser acionado, outro indicando o sentido, outros dois indicando a velocidade.
+2. Criar uma função para cada movimento que o robô pode fazer, ir para frente, ira para trás, virar para esquerda, virar para a direita. Que recebe apenas um argumento, sua velocidade. 
+3. Nosso caso. Criar uma função para cada motor, onde cada função recebe 2 argumentos, um indicando o sentido, o outro indicando a velocidade do motor em %.
+
+Abaixo segue o código contido na função *motor_1(char sentido, int velocidade)*
 
 
+
+```C
+void motor_1(int duty_cycle, char sentido)
+{
+   if(sentido == 'b')
+   {
+      set_power_pwm0_duty((int16)((POWER_PWM_PERIOD *4) * (duty_cycle*0.01)));
+      set_power_pwm2_duty((int16)(0));
+   }
+
+   if(sentido == 'f')
+   {
+      set_power_pwm0_duty((int16)(0));
+      set_power_pwm2_duty((int16)((POWER_PWM_PERIOD *4) * (duty_cycle*0.01)));
+      
+   }
+}
+
+
+```
 
 
 

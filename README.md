@@ -236,7 +236,9 @@ void motor_1(int duty_cycle, char sentido)
    }
 }
 ```
-O comando que precisamos prestar atenção é o `set_power_pwm0_duty()`. Primeiramente podemos observar 
+O comando que precisamos prestar atenção é o `set_power_pwm0_duty()`. Primeiramente podemos observar que na própria chamada da função já indicamos qual dos canais do PWM que queremos controlar. Dentro desta função vai um número que representa qual a porcentagem de ciclo de trabalho iremos usar. Todavia este valor não é passado diretamente como uma porcentagem. **O valor máximo desta função é 4 vezes o valor do período do sinal PWM**, o valor do período foi definido durante a configuração. A partir desta informação podemos concluir que quanto menor a frequência, maior será quantidade de diferentes valores que poderemos inserir lá, portanto quanto maior a frequência do PWM, menor sua resolução (considerando que estamos controlando a frequência do PWM usando apenas o valor do seu período). 
+
+Quando desenvolvi esta função não pretendia trabalhar com uma grande resolução e valores de 0 a 100 já seriam o suficiente. Portanto como argumento é passada a conta 4 x Período do PWM x Porcentagem. A fim de facilitar a manutenção do código. 
 
 
 

@@ -207,7 +207,7 @@ Na placa deste robô, e também da maioria dos robôs da competição, os motore
 
 <img src="./images/img04.png" heigth = "400" width = "400">
 
-A fim de acionar um motor num determinado sentido é preciso fechar a chave S1 e S4, e para outro sentido, usar a chave S2 e S3 gira o motor em outro sentido. No nosso circuito cada uma destas portas é ligada a um canal diferente do PWM (aqueles programados em nossa seção de configuração), de maneira que podemos abrir e fechar elas usando uma onde PWM, controlando assim não só seu sentido como também sua velocidade ligando e desligando a chave dentro de um ciclo de trabalho estipulado. 
+A fim de acionar um motor num determinado sentido é preciso fechar a chave S1 e S4, e para outro sentido, usar a chave S2 e S3 gira o motor em outro sentido. No nosso circuito cada par de chaves é ligado a um canal diferente do PWM (aqueles programados em nossa seção de configuração), de maneira que podemos abrir e fechar elas usando uma onde PWM, controlando assim não só seu sentido como também sua velocidade ligando e desligando a chave dentro de um ciclo de trabalho estipulado. 
 
 Existem diferentes maneiras de escrever as funções que irão movimentar o seu robô, abaixo segue algumas opções, todavia explicarei com mais detalhes a que foi adotada aqui.
 
@@ -235,10 +235,8 @@ void motor_1(int duty_cycle, char sentido)
       
    }
 }
-
-
 ```
-
+O comando que precisamos prestar atenção é o `set_power_pwm0_duty()`. Primeiramente podemos observar 
 
 
 

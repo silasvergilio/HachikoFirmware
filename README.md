@@ -14,6 +14,7 @@ Repositório para ensinar novos e antigos competidores de Sumô 3kg (Auto) a usa
         2. [PWM](#pwm)
         3. [ADC](#adc)
         4. [Diretivas de Compilador](#diretivas)
+    3. [Acionamento dos Motores](#acionamentoMotor)
 
 #### Objetivo <a name="objetivo"></a>
 O principal objetivo deste repostório é capactar colegas programadores a usar este código como inspiração para seus códigos, tanto em placas semelhantes a que eu usei, quanto em placas diferentes como Arduino ou Arm, portanto tento nesta descrição descrever tanto do ponto de vista do hardware que eu estou manipulando para alcançar meus objetivos, bem como também descrever a lógica por trás do código por meio de imagens e explicações textuais. 

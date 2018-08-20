@@ -202,7 +202,12 @@ Existem mais algumas configurações que serão trabalhadas, como a porta Serial
 <a name="acionamentoMotor"></a>
 ##### Acionamento de Motores
 
-Na placa deste robô, e também da maioria dos robôs da competição, os motores são acionados por um tipo de eletrônica chamada *Ponte H*, o seu funcionamento pode ser detalhadamente descrito na documentação da equipe eletrônica, todavia o funcionamento do nocco circuito específico merece um espaço aqui. Abaixo segue uma imagem que usaremos para descrever de maneira conceitual  
+Na placa deste robô, e também da maioria dos robôs da competição, os motores são acionados por um tipo de eletrônica chamada *Ponte H*, o seu funcionamento pode ser detalhadamente descrito na documentação da equipe eletrônica, todavia o funcionamento do nosso circuito específico merece um espaço aqui. Abaixo segue uma imagem que usaremos para descrever de maneira conceitual.
+
+<img src="./images/img04.png" heigth = "400" width = "400">
+
+
+
 
 
 

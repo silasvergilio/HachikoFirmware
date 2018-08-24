@@ -15,6 +15,7 @@ Repositório para ensinar novos e antigos competidores de Sumô 3kg (Auto) a usa
         3. [ADC](#adc)
         4. [Diretivas de Compilador](#diretivas)
     3. [Acionamento dos Motores](#acionamentoMotor)
+    4. [Leitura de Sensores Analógicos](#leituraSensoresAnalogicos)
 
 #### Objetivo <a name="objetivo"></a>
 O principal objetivo deste repostório é capactar colegas programadores a usar este código como inspiração para seus códigos, tanto em placas semelhantes a que eu usei, quanto em placas diferentes como Arduino ou Arm, portanto tento nesta descrição descrever tanto do ponto de vista do hardware que eu estou manipulando para alcançar meus objetivos, bem como também descrever a lógica por trás do código por meio de imagens e explicações textuais. 
@@ -238,7 +239,64 @@ void motor_1(int duty_cycle, char sentido)
 ```
 O comando que precisamos prestar atenção é o `set_power_pwm0_duty()`. Primeiramente podemos observar que na própria chamada da função já indicamos qual dos canais do PWM que queremos controlar. Dentro desta função vai um número que representa qual a porcentagem de ciclo de trabalho iremos usar. Todavia este valor não é passado diretamente como uma porcentagem. **O valor máximo desta função é 4 vezes o valor do período do sinal PWM**, o valor do período foi definido durante a configuração. A partir desta informação podemos concluir que quanto menor a frequência, maior será quantidade de diferentes valores que poderemos inserir lá, portanto quanto maior a frequência do PWM, menor sua resolução (considerando que estamos controlando a frequência do PWM usando apenas o valor do seu período). 
 
-Quando desenvolvi esta função não pretendia trabalhar com uma grande resolução e valores de 0 a 100 já seriam o suficiente. Portanto como argumento é passada a conta 4 x Período do PWM x Porcentagem. A fim de facilitar a manutenção do código. 
+Quando desenvolvi esta função não pretendia trabalhar com uma grande resolução e valores de 0 a 100 já seriam o suficiente. Portanto como argumento é passada a conta 4 x Período do PWM x Porcentagem. A fim de facilitar a manutenção do código.
+
+Para um código em Arduino, bastaria utilizar o comando
+
+```C
+analogWrite(pinoPWM,valorPWM);
+```
+
+Lembrando que há pinos compatíveis com com o sinal PWM que variam de acordo com o modelo, o valor do PWM vai de 0 a 255.
+
+<a name="leituraSensoresAnalogicos"></a>
+##### Leitura de Sensores Analógicos
+
+A maioria dos sensores utilizados neste projeto estão conectados em portas analógicas do PIC. Primeira coisa importante de salientar é que os pinos do PIC habilitados a uma leitura analógica **não precisam obrigatoriamente** fazer leitura analógica, eles podem fazer leitura digital, basta não configurá-los como uma leitura analógica. O processo de uma leitura analógica é **mais lento que a leitura digital**. Todo o processo de leitura ocorre em uma função preparada para cumprir as devidas tarefas:
+
+1. Preparar um determinado pino para fazer uma leitura
+2, Verificar se o valor lido foi menor ou maior que um determinado *threshold* 
+3. Armazenar a informaço acima em um determinado bit de uma determinada palavra.
+
+Dadas estas informações, criou-se a função abaixo.
+
+```C
+int8 leitura_adc(int16 threshold, int canal, int8 resposta_leitura, int bit)
+{
+
+   switch(canal) //switch para preparar o canal desejado para a conversão A/D
+   {
+      case 0: set_adc_channel(0); break;
+      case 1: set_adc_channel(1); break;
+      case 2: set_adc_channel(2); break;
+      case 3: set_adc_channel(3); break;
+      case 4: set_adc_channel(4); break;
+      case 5: set_adc_channel(5); break;
+      case 6: set_adc_channel(6); break;
+      case 7: set_adc_channel(7); break;
+      case 8: set_adc_channel(8); break;
+      default: break;
+   }
+
+   delay_us(10);            //delay de 10 us importante ser um valor pequeno
+   leitura = read_adc();    //Realiza a leitura do canal analogico-digital
+
+   if(debugging_linha)
+   {
+   if(canal == canal_sensor_linha_1)  printf("*P%Lu*",leitura);
+   else if(canal == canal_sensor_linha_2) printf("*G%Lu*",leitura);
+   else if(canal == canal_sensor_linha_3) printf("*T%Lu*", leitura);
+   else if(canal == canal_sensor_linha_4) printf("*K%Lu*", leitura);
+   }
+
+   if (leitura > threshold) bit_clear(resposta_leitura,bit); //Caso o sensor retorne 0, a palavra recebe 0 em seu primeiro bit
+   else bit_set(resposta_leitura,bit); //Caso sensor retorne 1 , a palavra recebe 1 em seu primeiro bit
+
+   return resposta_leitura; //devolve a variavel com seus bits alterados
+
+}
+
+```
 
 
 

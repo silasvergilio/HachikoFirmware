@@ -255,7 +255,7 @@ Lembrando que há pinos compatíveis com com o sinal PWM que variam de acordo co
 A maioria dos sensores utilizados neste projeto estão conectados em portas analógicas do PIC. Primeira coisa importante de salientar é que os pinos do PIC habilitados a uma leitura analógica **não precisam obrigatoriamente** fazer leitura analógica, eles podem fazer leitura digital, basta não configurá-los como uma leitura analógica. O processo de uma leitura analógica é **mais lento que a leitura digital**. Todo o processo de leitura ocorre em uma função preparada para cumprir as devidas tarefas:
 
 1. Preparar um determinado pino para fazer uma leitura
-2, Verificar se o valor lido foi menor ou maior que um determinado *threshold* 
+2. Verificar se o valor lido foi menor ou maior que um determinado *threshold* 
 3. Armazenar a informaço acima em um determinado bit de uma determinada palavra.
 
 Dadas estas informações, criou-se a função abaixo.

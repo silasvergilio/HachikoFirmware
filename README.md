@@ -289,15 +289,13 @@ int8 leitura_adc(int16 threshold, int canal, int8 resposta_leitura, int bit)
    else if(canal == canal_sensor_linha_4) printf("*K%Lu*", leitura);
    }
 
-   if (leitura > threshold) bit_clear(resposta_leitura,bit); //Caso o sensor retorne 0, a palavra recebe 0 em seu primeiro bit
-   else bit_set(resposta_leitura,bit); //Caso sensor retorne 1 , a palavra recebe 1 em seu primeiro bit
+   if (leitura > threshold) bit_clear(resposta_leitura,bit); 
+   else bit_set(resposta_leitura,bit); 
 
    return resposta_leitura; //devolve a variavel com seus bits alterados
-
 }
-
 ```
-
+Primeiramente de acordo com o canal indicado (cada porta do PIC disponível para conversão A/D representa um canal), o PIC preparada aquele canal (ou seja, direciona o multiplexador para aquele pino). Usando o canal ```C set_adc_channel(canal) ```
 
 
 

@@ -295,7 +295,7 @@ int8 leitura_adc(int16 threshold, int canal, int8 resposta_leitura, int bit)
    return resposta_leitura; //devolve a variavel com seus bits alterados
 }
 ```
-Primeiramente de acordo com o canal indicado (cada porta do PIC disponível para conversão A/D representa um canal), o PIC preparada aquele canal (ou seja, direciona o multiplexador para aquele pino). Usando o canal ```C set_adc_channel(canal) ```
+Primeiramente de acordo com o canal indicado (cada porta do PIC disponível para conversão A/D representa um canal), o PIC preparada aquele canal (ou seja, direciona o multiplexador para aquele pino). Usando o comando ```set_adc_channel(canal) ```
 
 
 

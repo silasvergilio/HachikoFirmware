@@ -295,7 +295,15 @@ int8 leitura_adc(int16 threshold, int canal, int8 resposta_leitura, int bit)
    return resposta_leitura; //devolve a variavel com seus bits alterados
 }
 ```
-Primeiramente de acordo com o canal indicado (cada porta do PIC disponível para conversão A/D representa um canal), o PIC preparada aquele canal (ou seja, direciona o multiplexador para aquele pino). Usando o comando ```set_adc_channel(canal) ```
+Primeiramente de acordo com o canal indicado (cada porta do PIC disponível para conversão A/D representa um canal), o PIC preparada aquele canal (ou seja, direciona o multiplexador para aquele pino). Usando o comando ```set_adc_channel(canal) ```o pino está preparado para a conversão. 
+
+De acordo com o a própria documentação disponível pela *Microchip* é aconselhável esperar cerca de 10us até obter o valor da conversão. Para isso existe o comando ```delay_us(10```.
+
+O comando ```read_adc()``` retorna o resultado da conversão no pino que estava preparado. Após obtido este valor é realizada uma comparação, caso o valor lido tenha sido maior que o threshold passado como argumento da função, caso seja maior, o bit (também passado como argumento) na palavra (também indicada) irá valer **1**. Caso contrário irá valer **0**. 
+
+> O objetivo desta função é chamá-la N vezes (onde N indica a quantidade de sensores de distância) e que ao final das chamadas crie uma palavra que de fácil acesso permita entender como uma espécie de fotografia o que o robô está vendo. 
+
+
 
 
 

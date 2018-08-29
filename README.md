@@ -16,6 +16,7 @@ Repositório para ensinar novos e antigos competidores de Sumô 3kg (Auto) a usa
         4. [Diretivas de Compilador](#diretivas)
     3. [Acionamento dos Motores](#acionamentoMotor)
     4. [Leitura de Sensores Analógicos](#leituraSensoresAnalogicos)
+    5. [Timers](#timers)
 
 #### Objetivo <a name="objetivo"></a>
 O principal objetivo deste repostório é capactar colegas programadores a usar este código como inspiração para seus códigos, tanto em placas semelhantes a que eu usei, quanto em placas diferentes como Arduino ou Arm, portanto tento nesta descrição descrever tanto do ponto de vista do hardware que eu estou manipulando para alcançar meus objetivos, bem como também descrever a lógica por trás do código por meio de imagens e explicações textuais. 
@@ -301,7 +302,11 @@ De acordo com o a própria documentação disponível pela *Microchip* é aconse
 
 O comando ```read_adc()``` retorna o resultado da conversão no pino que estava preparado. Após obtido este valor é realizada uma comparação, caso o valor lido tenha sido maior que o threshold passado como argumento da função, caso seja maior, o bit (também passado como argumento) na palavra (também indicada) irá valer **1**. Caso contrário irá valer **0**. 
 
-> O objetivo desta função é chamá-la N vezes (onde N indica a quantidade de sensores de distância) e que ao final das chamadas crie uma palavra que de fácil acesso permita entender como uma espécie de fotografia o que o robô está vendo. 
+> O objetivo desta função é chamá-la N vezes (onde N indica a quantidade de sensores de distância) e que ao final das chamadas crie uma palavra que de fácil acesso permita entender como uma espécie de fotografia o que o robô está vendo. De maneira que cada bit da palavra representa se um determinado sensor está vendo ou não. Por exemplo: 0b0000001 indica que apenas o sensor lateral esquerdo está vendo algo. Isso vai facilitar a tomada de decisões.
+
+<a name="timers"></a>
+##### Timers
+
 
 
 

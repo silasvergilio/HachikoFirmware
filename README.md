@@ -309,9 +309,7 @@ O comando ```read_adc()``` retorna o resultado da conversão no pino que estava 
 
 Timers são um tipo de interrupção periódica, quando preparamos uma das interrupções, sabemos que um determinado evento irá ocorrer sempre de acordo com o período configurado daquele timer.
 
->Interrupção 
-
-
+>Interrupção é um evento especial que **interrompe** o fluxo natural do cdigo, garantindo que determinadas ações aconteceram, sob um controle melhor
 
 
 

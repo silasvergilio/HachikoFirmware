@@ -307,6 +307,10 @@ O comando ```read_adc()``` retorna o resultado da conversão no pino que estava 
 <a name="timers"></a>
 ##### Timers
 
+Timers são um tipo de interrupção periódica, quando preparamos uma das interrupções, sabemos que um determinado evento irá ocorrer sempre de acordo com o período configurado daquele timer.
+
+>Interrupção 
+
 
 
 
